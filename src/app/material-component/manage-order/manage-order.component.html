@@ -1,0 +1,167 @@
+<div class="manage-container order-form">
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="header-left">
+            <h1 class="page-title">
+                <mat-icon>shopping_cart</mat-icon>
+                Create Order
+            </h1>
+            <p class="page-subtitle">Create a new order and generate bill</p>
+        </div>
+    </div>
+
+    <!-- Customer Details Section -->
+    <div class="form-section">
+        <h2 class="section-title">Customer Details</h2>
+        <form [formGroup]="orderForm" class="customer-form">
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="modern-field">
+                    <mat-label>Customer Name</mat-label>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <input matInput formControlName="name" required placeholder="Enter customer name">
+                    <mat-error>Name is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="modern-field">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matPrefix>email</mat-icon>
+                    <input matInput formControlName="email" required placeholder="Enter email">
+                    <mat-error>Valid email is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="modern-field">
+                    <mat-label>Contact Number</mat-label>
+                    <mat-icon matPrefix>phone</mat-icon>
+                    <input matInput formControlName="contactNumber" required placeholder="Enter contact number">
+                    <mat-error>Valid 10-digit number required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="modern-field">
+                    <mat-label>Payment Method</mat-label>
+                    <mat-icon matPrefix>payment</mat-icon>
+                    <mat-select formControlName="paymentMethod" required>
+                        <mat-option value="Cash">Cash</mat-option>
+                        <mat-option value="Card">Card</mat-option>
+                        <mat-option value="UPI">UPI</mat-option>
+                    </mat-select>
+                    <mat-error>Payment method is required</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+
+    <!-- Product Selection Section -->
+    <div class="form-section">
+        <h2 class="section-title">Add Products</h2>
+        <div class="product-selection">
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="modern-field">
+                    <mat-label>Select Category</mat-label>
+                    <mat-icon matPrefix>category</mat-icon>
+                    <mat-select [(ngModel)]="selectedCategory" (selectionChange)="getProductsByCategory($event)">
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                            {{ category.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="modern-field">
+                    <mat-label>Select Product</mat-label>
+                    <mat-icon matPrefix>inventory_2</mat-icon>
+                    <mat-select [(ngModel)]="selectedProduct" (selectionChange)="getProductDetails($event)">
+                        <mat-option *ngFor="let product of products" [value]="product">
+                            {{ product.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="form-row" *ngIf="selectedProduct">
+                <mat-form-field appearance="outline" class="modern-field price-field">
+                    <mat-label>Price</mat-label>
+                    <mat-icon matPrefix>currency_rupee</mat-icon>
+                    <input matInput [(ngModel)]="price" readonly>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="modern-field qty-field">
+                    <mat-label>Quantity</mat-label>
+                    <mat-icon matPrefix>production_quantity_limits</mat-icon>
+                    <input matInput type="number" [(ngModel)]="quantity" min="1" (input)="setQuantity($event)">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="modern-field total-field">
+                    <mat-label>Total</mat-label>
+                    <mat-icon matPrefix>summarize</mat-icon>
+                    <input matInput [(ngModel)]="totalAmount" readonly>
+                </mat-form-field>
+
+                <button mat-raised-button class="add-product-btn" (click)="addToOrder()"
+                    [disabled]="!quantity || quantity < 1">
+                    <mat-icon>add</mat-icon>
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Items Table -->
+    <div class="form-section" *ngIf="dataSource.length > 0">
+        <h2 class="section-title">Order Items</h2>
+        <div class="table-container order-table">
+            <table mat-table [dataSource]="dataSource" class="modern-table">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Product</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef>Category</th>
+                    <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Price</th>
+                    <td mat-cell *matCellDef="let element">₹{{ element.price }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef>Qty</th>
+                    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef>Total</th>
+                    <td mat-cell *matCellDef="let element">₹{{ element.total }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element; let i = index">
+                        <button mat-icon-button class="action-icon delete" (click)="removeItem(i)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="orderColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: orderColumns;"></tr>
+            </table>
+        </div>
+
+        <!-- Grand Total -->
+        <div class="grand-total">
+            <span class="total-label">Grand Total:</span>
+            <span class="total-value">₹{{ getGrandTotal() }}</span>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="submit-section" *ngIf="dataSource.length > 0">
+        <button mat-raised-button class="submit-btn" (click)="submitOrder()" [disabled]="!orderForm.valid">
+            <mat-icon>receipt</mat-icon>
+            Generate Bill
+        </button>
+    </div>
+</div>

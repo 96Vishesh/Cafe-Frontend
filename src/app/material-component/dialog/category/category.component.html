@@ -1,0 +1,35 @@
+<div class="dialog-container">
+    <!-- Header -->
+    <div class="dialog-header">
+        <div class="header-content">
+            <mat-icon class="header-icon">category</mat-icon>
+            <span class="header-title">{{ dialogAction }} Category</span>
+        </div>
+        <button class="close-button" mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <!-- Content -->
+    <mat-dialog-content class="dialog-content">
+        <form [formGroup]="categoryForm" class="dialog-form">
+            <mat-form-field appearance="outline" class="modern-field">
+                <mat-label>Category Name</mat-label>
+                <mat-icon matPrefix>label</mat-icon>
+                <input matInput formControlName="name" required placeholder="Enter category name">
+                <mat-error *ngIf="categoryForm.controls.name.touched && categoryForm.controls.name.invalid">
+                    Category name is required
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </mat-dialog-content>
+
+    <!-- Actions -->
+    <mat-dialog-actions class="dialog-actions">
+        <button mat-stroked-button class="btn-secondary" mat-dialog-close>Cancel</button>
+        <button mat-flat-button class="btn-primary" [disabled]="!categoryForm.valid" (click)="onSubmit()">
+            <mat-icon>{{ dialogAction === 'Add' ? 'add' : 'save' }}</mat-icon>
+            {{ dialogAction }}
+        </button>
+    </mat-dialog-actions>
+</div>

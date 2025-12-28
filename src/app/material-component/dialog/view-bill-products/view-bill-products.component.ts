@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-bill-products',
@@ -6,9 +7,22 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./view-bill-products.component.scss']
 })
 export class ViewBillProductsComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'category', 'price', 'quantity', 'total'];
+  dataSource: any[] = [];
+  data: any;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any) { }
 
   ngOnInit() {
+    this.data = this.dialogData.data;
+    if (this.data.productDetail) {
+      try {
+        this.dataSource = JSON.parse(this.data.productDetail);
+      } catch (error) {
+        console.error('Error parsing product details:', error);
+        this.dataSource = [];
+      }
+    }
   }
 }
+
