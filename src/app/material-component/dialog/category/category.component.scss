@@ -1,0 +1,182 @@
+/* ============================================
+   DIALOG COMPONENT - SHARED STYLES
+   ============================================ */
+
+/* Container */
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    color: #ffffff;
+}
+
+/* Header */
+.dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px 16px;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    color: #a855f7;
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+}
+
+.header-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.close-button {
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Content */
+.dialog-content {
+    padding: 24px 28px !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.dialog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Modern Form Field */
+.modern-field {
+    width: 100%;
+
+    ::ng-deep .mat-form-field-wrapper {
+        padding-bottom: 12px;
+    }
+
+    ::ng-deep .mat-form-field-outline {
+        color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    ::ng-deep .mat-form-field-outline-thick {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep.mat-focused .mat-form-field-outline {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-form-field-label {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    ::ng-deep.mat-focused .mat-form-field-label {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-input-element {
+        color: #ffffff !important;
+        caret-color: #a855f7;
+    }
+
+    ::ng-deep .mat-input-element::placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    ::ng-deep .mat-form-field-prefix .mat-icon,
+    ::ng-deep .mat-form-field-suffix .mat-icon {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    ::ng-deep.mat-focused .mat-form-field-prefix .mat-icon {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-select-value,
+    ::ng-deep .mat-select-arrow {
+        color: #ffffff !important;
+    }
+
+    ::ng-deep .mat-select-placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+}
+
+/* Actions */
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 28px 24px !important;
+    margin: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 0 20px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        color: #ffffff !important;
+    }
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 0 24px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4) !important;
+    transition: all 0.3s ease !important;
+
+    .mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+    }
+
+    &:hover:not([disabled]) {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(147, 51, 234, 0.5) !important;
+    }
+
+    &[disabled] {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: rgba(255, 255, 255, 0.3) !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Error styling */
+mat-error {
+    color: #f87171 !important;
+    font-size: 0.8rem;
+}

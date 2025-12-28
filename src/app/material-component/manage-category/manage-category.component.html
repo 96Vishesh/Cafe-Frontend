@@ -1,0 +1,53 @@
+<div class="manage-container">
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="header-left">
+            <h1 class="page-title">
+                <mat-icon>category</mat-icon>
+                Manage Categories
+            </h1>
+            <p class="page-subtitle">Create and manage your product categories</p>
+        </div>
+        <button mat-raised-button class="add-btn" (click)="handleAddAction()">
+            <mat-icon>add</mat-icon>
+            Add Category
+        </button>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="filter-section">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search Categories</mat-label>
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Type to search...">
+        </mat-form-field>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container">
+        <div class="responsive_table">
+            <table mat-table [dataSource]="dataSource" matSort class="modern-table">
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button class="action-icon edit" matTooltip="Edit Category"
+                            (click)="handleEditAction(element)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

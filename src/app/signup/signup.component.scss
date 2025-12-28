@@ -1,13 +1,226 @@
-.mat-toolbar{
-  margin: -24px;
-  width:auto;
-  margin-bottom: 10px;
+/* ============================================
+   SIGNUP COMPONENT - MODERN GLASSMORPHISM STYLE
+   ============================================ */
+
+/* Container */
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: #ffffff;
 }
 
-mat-form-field{
-  padding:5px;
+/* Header */
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 16px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-mat-hint{
-  color: red;
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  color: #10b981;
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.4));
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.close-button {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Content */
+.dialog-content {
+  padding: 24px 28px !important;
+  max-height: 400px !important;
+  overflow-y: auto !important;
+}
+
+.dialog-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+}
+
+/* Form */
+.auth-form {
+  width: 100%;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Modern Form Field - White text overrides */
+.modern-field {
+  width: 100%;
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 12px;
+  }
+
+  ::ng-deep .mat-form-field-outline {
+    color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  ::ng-deep .mat-form-field-outline-thick {
+    color: #10b981 !important;
+  }
+
+  ::ng-deep.mat-focused .mat-form-field-outline {
+    color: #10b981 !important;
+  }
+
+  ::ng-deep .mat-form-field-label {
+    color: #ffffff !important;
+  }
+
+  ::ng-deep.mat-focused .mat-form-field-label {
+    color: #10b981 !important;
+  }
+
+  ::ng-deep .mat-input-element {
+    color: #ffffff !important;
+    caret-color: #10b981;
+  }
+
+  ::ng-deep .mat-input-element::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  ::ng-deep .mat-form-field-prefix .mat-icon,
+  ::ng-deep .mat-form-field-suffix .mat-icon {
+    color: #ffffff !important;
+  }
+
+  ::ng-deep.mat-focused .mat-form-field-prefix .mat-icon {
+    color: #10b981 !important;
+  }
+
+  ::ng-deep .mat-form-field-suffix .mat-icon-button {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  ::ng-deep .mat-form-field-suffix .mat-icon-button:hover {
+    color: #ffffff !important;
+  }
+}
+
+/* Password mismatch hint */
+.password-mismatch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #f87171 !important;
+  font-size: 0.8rem;
+
+  .mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #f87171;
+  }
+}
+
+/* Actions */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 28px 24px !important;
+  margin: 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 0 20px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 0 24px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+  transition: all 0.3s ease !important;
+
+  .mat-icon {
+    margin-right: 6px;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover:not([disabled]) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5) !important;
+  }
+
+  &[disabled] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Error styling */
+mat-error {
+  color: #f87171 !important;
+  font-size: 0.8rem;
+}
+
+/* Custom scrollbar for content */
+.dialog-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dialog-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.dialog-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }

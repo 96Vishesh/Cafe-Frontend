@@ -1,0 +1,26 @@
+<div class="dialog-container confirmation">
+    <!-- Header -->
+    <div class="dialog-header warning">
+        <div class="header-content">
+            <mat-icon class="header-icon">warning</mat-icon>
+            <span class="header-title">Confirm Action</span>
+        </div>
+        <button class="close-button" mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <!-- Content -->
+    <mat-dialog-content class="dialog-content">
+        <p class="confirm-message">{{ details.message }}</p>
+    </mat-dialog-content>
+
+    <!-- Actions -->
+    <mat-dialog-actions class="dialog-actions" *ngIf="details.confirmation">
+        <button mat-stroked-button class="btn-secondary" mat-dialog-close>No, Cancel</button>
+        <button mat-flat-button class="btn-danger" (click)="onConfirm()">
+            <mat-icon>check</mat-icon>
+            Yes, Delete
+        </button>
+    </mat-dialog-actions>
+</div>

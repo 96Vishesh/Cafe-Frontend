@@ -1,42 +1,93 @@
-.mat-toolbar {
-    margin: -24px;
-    margin-bottom: 0;
-    width: auto;
-    margin-bottom: 10PX;
+@import '../category/category.component.scss';
+
+.customer-info {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:last-child {
+    border-bottom: none;
   }
-  
-    mat-form-field{
-        padding: 5px;
-    }
+}
 
-    .float-right{
-        float: right;
-    }
-    
-    mat-card{
-        padding: 20px;
-    }
-    
-    table {
-        width: 100%;
-      }
+.info-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
 
+.info-value {
+  color: #ffffff;
+  font-weight: 500;
 
-      #customers {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-      
-      #customers td, #customers th {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-      
-      #customers th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #04AA6D;
-        color: white;
-      }
+  &.payment {
+    color: #3b82f6;
+  }
+}
+
+.products-section {
+  margin-top: 16px;
+}
+
+.section-title {
+  color: #a855f7;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.products-table {
+  width: 100%;
+  background: transparent !important;
+
+  th.mat-header-cell {
+    background: rgba(147, 51, 234, 0.1) !important;
+    color: #a855f7 !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 12px !important;
+  }
+
+  td.mat-cell {
+    color: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 12px !important;
+  }
+
+  .total-cell {
+    color: #10b981 !important;
+    font-weight: 600;
+  }
+}
+
+.grand-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-top: 16px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.total-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.total-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #10b981;
+}

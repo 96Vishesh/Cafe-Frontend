@@ -1,0 +1,57 @@
+<div class="dialog-container">
+  <!-- Header -->
+  <div class="dialog-header">
+    <div class="header-content">
+      <mat-icon class="header-icon">account_circle</mat-icon>
+      <span class="header-title">Welcome Back</span>
+    </div>
+    <button class="close-button" mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- Content -->
+  <mat-dialog-content class="dialog-content">
+    <p class="dialog-subtitle">Sign in to your account to continue</p>
+
+    <form [formGroup]="loginForm" class="auth-form">
+      <div class="form-fields">
+        <mat-form-field appearance="outline" class="modern-field">
+          <mat-label>Email Address</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput formControlName="email" required placeholder="Enter your email">
+          <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+            <span *ngIf="loginForm.controls.email.required">Email is required</span>
+            <span *ngIf="loginForm.controls.email.pattern">Please enter a valid email</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="modern-field">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput formControlName="password" required [type]="hide ? 'password': 'text'"
+            placeholder="Enter your password">
+          <button type="button" mat-icon-button matSuffix (click)="hide =!hide" [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+            <span *ngIf="loginForm.controls.password.required">Password is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <!-- Actions -->
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-stroked-button class="btn-secondary" mat-dialog-close>
+      Cancel
+    </button>
+    <button mat-flat-button class="btn-primary" type="submit" (click)="handleSubmit()"
+      [disabled]="!(loginForm.valid && loginForm.dirty)">
+      <mat-icon>login</mat-icon>
+      Sign In
+    </button>
+  </mat-dialog-actions>
+</div>

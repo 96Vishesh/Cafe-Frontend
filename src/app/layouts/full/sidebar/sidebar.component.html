@@ -1,0 +1,37 @@
+<mat-nav-list class="sidebar-nav">
+  <!-- Dashboard -->
+  <a mat-list-item routerLink="/cafe/dashboard" routerLinkActive="active">
+    <mat-icon class="nav-icon">dashboard</mat-icon>
+    <span class="nav-label">Dashboard</span>
+  </a>
+
+  <!-- Manage Category - Admin Only -->
+  <a mat-list-item routerLink="/cafe/category" routerLinkActive="active" *ngIf="isAdmin">
+    <mat-icon class="nav-icon">category</mat-icon>
+    <span class="nav-label">Manage Category</span>
+  </a>
+
+  <!-- Manage Product - Admin Only -->
+  <a mat-list-item routerLink="/cafe/product" routerLinkActive="active" *ngIf="isAdmin">
+    <mat-icon class="nav-icon">inventory_2</mat-icon>
+    <span class="nav-label">Manage Product</span>
+  </a>
+
+  <!-- Manage Order -->
+  <a mat-list-item routerLink="/cafe/order" routerLinkActive="active">
+    <mat-icon class="nav-icon">shopping_cart</mat-icon>
+    <span class="nav-label">Manage Order</span>
+  </a>
+
+  <!-- View Bills -->
+  <a mat-list-item routerLink="/cafe/bill" routerLinkActive="active">
+    <mat-icon class="nav-icon">receipt_long</mat-icon>
+    <span class="nav-label">View Bills</span>
+  </a>
+
+  <!-- Manage Users - Admin Only -->
+  <a mat-list-item routerLink="/cafe/user" routerLinkActive="active" *ngIf="isAdmin">
+    <mat-icon class="nav-icon">people</mat-icon>
+    <span class="nav-label">Manage Users</span>
+  </a>
+</mat-nav-list>

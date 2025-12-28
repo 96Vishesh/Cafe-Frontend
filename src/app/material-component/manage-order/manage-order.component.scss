@@ -1,0 +1,232 @@
+@import '../manage-category/manage-category.component.scss';
+
+/* Order Form Specific Styles */
+.order-form {
+    .form-section {
+        background: linear-gradient(145deg, rgba(30, 30, 50, 0.6), rgba(20, 20, 35, 0.7));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    .section-title {
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, #a855f7, #7c3aed);
+            border-radius: 2px;
+        }
+    }
+}
+
+.customer-form,
+.product-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    .modern-field {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .price-field,
+    .qty-field,
+    .total-field {
+        flex: 0 1 150px;
+        min-width: 120px;
+    }
+}
+
+/* Material Form Field Overrides for Dark Theme */
+.modern-field {
+    ::ng-deep .mat-form-field-wrapper {
+        padding-bottom: 12px;
+    }
+
+    ::ng-deep .mat-form-field-outline {
+        color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    ::ng-deep .mat-form-field-outline-thick {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-form-field-label {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    ::ng-deep .mat-form-field-label-wrapper {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    ::ng-deep.mat-focused .mat-form-field-label {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-input-element {
+        color: #ffffff !important;
+        caret-color: #a855f7;
+    }
+
+    ::ng-deep .mat-input-element::placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    ::ng-deep .mat-form-field-prefix .mat-icon,
+    ::ng-deep .mat-form-field-suffix .mat-icon {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    ::ng-deep.mat-focused .mat-form-field-prefix .mat-icon {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-select-value {
+        color: #ffffff !important;
+    }
+
+    ::ng-deep .mat-select-arrow {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    ::ng-deep .mat-select-placeholder {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    ::ng-deep .mat-error {
+        color: #f87171 !important;
+    }
+}
+
+.add-product-btn {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 0 24px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+    transition: all 0.3s ease !important;
+
+    &:hover:not([disabled]) {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5) !important;
+    }
+
+    &[disabled] {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: rgba(255, 255, 255, 0.3) !important;
+        box-shadow: none !important;
+    }
+}
+
+.order-table {
+    margin-top: 16px;
+}
+
+.grand-total {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    margin-top: 16px;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.total-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.total-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #a855f7;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 48px !important;
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+    color: #ffffff !important;
+    border-radius: 16px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    box-shadow: 0 8px 30px rgba(147, 51, 234, 0.5) !important;
+    transition: all 0.3s ease !important;
+
+    .mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+    }
+
+    &:hover:not([disabled]) {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(147, 51, 234, 0.6) !important;
+    }
+
+    &[disabled] {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: rgba(255, 255, 255, 0.3) !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row .modern-field,
+    .form-row .price-field,
+    .form-row .qty-field,
+    .form-row .total-field {
+        flex: 1;
+        min-width: 100%;
+    }
+
+    .add-product-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .grand-total {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}

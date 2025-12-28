@@ -9,7 +9,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialRoutes } from './material.routing';
 import { MaterialModule } from '../shared/material-module';
+
+// Dialog Components
 import { ViewBillProductsComponent } from './dialog/view-bill-products/view-bill-products.component';
+import { CategoryComponent } from './dialog/category/category.component';
+import { ProductComponent } from './dialog/product/product.component';
+import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
+import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
+
+// Management Components
+import { ManageCategoryComponent } from './manage-category/manage-category.component';
+import { ManageProductComponent } from './manage-product/manage-product.component';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
+import { ManageBillComponent } from './manage-bill/manage-bill.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 @NgModule({
   imports: [
@@ -24,7 +37,16 @@ import { ViewBillProductsComponent } from './dialog/view-bill-products/view-bill
   ],
   providers: [],
   declarations: [
-    ViewBillProductsComponent
+    ViewBillProductsComponent,
+    CategoryComponent,
+    ProductComponent,
+    ConfirmationComponent,
+    ChangePasswordComponent,
+    ManageCategoryComponent,
+    ManageProductComponent,
+    ManageOrderComponent,
+    ManageBillComponent,
+    ManageUserComponent
   ]
 })
-export class MaterialComponentsModule {}
+export class MaterialComponentsModule { }

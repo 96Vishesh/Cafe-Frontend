@@ -1,0 +1,213 @@
+/* ============================================
+   MANAGE TABLE COMPONENT - SHARED STYLES
+   ============================================ */
+
+.manage-container {
+    padding: 24px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0f0923 0%, #1a0f2e 100%);
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+
+    .mat-icon {
+        font-size: 1.75rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        color: #a855f7;
+    }
+}
+
+.page-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Add Button */
+.add-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px !important;
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4) !important;
+    transition: all 0.3s ease !important;
+
+    .mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(147, 51, 234, 0.5) !important;
+    }
+}
+
+/* Filter Section */
+.filter-section {
+    margin-bottom: 24px;
+}
+
+.search-field {
+    width: 100%;
+    max-width: 400px;
+
+    ::ng-deep .mat-form-field-outline {
+        color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    ::ng-deep .mat-form-field-outline-thick {
+        color: #a855f7 !important;
+    }
+
+    ::ng-deep .mat-form-field-label {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    ::ng-deep .mat-input-element {
+        color: #ffffff !important;
+    }
+
+    ::ng-deep .mat-form-field-prefix .mat-icon {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+}
+
+/* Table Container */
+.table-container {
+    background: linear-gradient(145deg, rgba(30, 30, 50, 0.8), rgba(20, 20, 35, 0.9));
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Modern Table */
+.modern-table {
+    width: 100%;
+    background: transparent !important;
+
+    th.mat-header-cell {
+        background: rgba(147, 51, 234, 0.1) !important;
+        color: #a855f7 !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding: 16px !important;
+    }
+
+    td.mat-cell {
+        color: rgba(255, 255, 255, 0.85) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        padding: 16px !important;
+    }
+
+    tr.mat-row {
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: rgba(168, 85, 247, 0.08) !important;
+        }
+    }
+}
+
+/* Action Icons */
+.action-icon {
+    transition: all 0.2s ease;
+
+    &.edit {
+        color: #3b82f6 !important;
+
+        &:hover {
+            color: #60a5fa !important;
+            transform: scale(1.1);
+        }
+    }
+
+    &.delete {
+        color: #ef4444 !important;
+
+        &:hover {
+            color: #f87171 !important;
+            transform: scale(1.1);
+        }
+    }
+
+    &.toggle {
+        &.active {
+            color: #10b981 !important;
+        }
+
+        &.inactive {
+            color: #ef4444 !important;
+        }
+    }
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    &.active {
+        background: rgba(16, 185, 129, 0.2);
+        color: #10b981;
+    }
+
+    &.inactive {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .manage-container {
+        padding: 16px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-field {
+        max-width: 100%;
+    }
+}

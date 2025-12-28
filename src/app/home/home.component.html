@@ -1,18 +1,56 @@
-<div class="bg-image"></div>
+<!-- Hero Section with Background -->
+<div class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <mat-icon class="hero-icon">restaurant</mat-icon>
+      Cafe Management System
+    </h1>
+    <p class="hero-subtitle">Streamline your cafe operations with our modern management solution</p>
+  </div>
+</div>
+
+<!-- Best Seller Section -->
 <app-best-seller></app-best-seller>
 
-<div class="wrapper sticky">
-  <nav class="navbar-fixed-top">
-    <a href="#" class="logo">
-      <mat-icon>storefront</mat-icon> Cafe Management System
+<!-- Modern Navigation -->
+<nav class="main-nav">
+  <div class="nav-container">
+    <a class="nav-logo">
+      <mat-icon>storefront</mat-icon>
+      <span>Cafe Manager</span>
     </a>
-    <ul>
+
+    <ul class="nav-links">
       <li>
-        <a (click)="handleSignupAction()">Signup</a>
+        <a class="nav-link" (click)="handleLoginAction()">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="handleSignupAction()">
+          <mat-icon>person_add</mat-icon>
+          <span>Signup</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="handleForgotPasswordAction()">
+          <mat-icon>help_outline</mat-icon>
+          <span>Help</span>
+        </a>
       </li>
     </ul>
-  </nav>
-</div>
-<div class="footer" id="signup">
-  <h2>All right reserved @Ayanokoji</h2>
-</div>
+  </div>
+</nav>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <mat-icon>local_cafe</mat-icon>
+      <span>Cafe Management System</span>
+    </div>
+    <p class="footer-copyright">© 2024 All rights reserved</p>
+  </div>
+</footer>
